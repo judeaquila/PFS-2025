@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Under Construction</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    /* Curtain animation */
+    .curtain {
+      position: fixed;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(#222, #000);
+      z-index: 999;
+      animation: curtainOpen 3s forwards;
+    }
+    .curtain.left {
+      left: 0;
+      border-right: 2px solid #444;
+    }
+    .curtain.right {
+      right: 0;
+      border-left: 2px solid #444;
+    }
+
+    @keyframes curtainOpen {
+      from { width: 50%; }
+      to { width: 0; }
+    }
+
+    /* Content */
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 2rem;
+    }
+
+    .countdown {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #0d6efd;
+      margin-top: 1.5rem;
+    }
+
+    .highlight {
+      color: #ffc107;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Curtains -->
+  <div class="curtain left"></div>
+  <div class="curtain right"></div>
+
+  <!-- Content -->
+  <div class="content container">
+    <h1 class="display-5">🚧 Site Under Construction 🚧</h1>
+    <p class="lead">If something is not working, please call 
+      <span class="highlight">+233-241-043-139</span>  
+      or email  
+      <span class="highlight">pneumaconsult@gmail.com</span>.
+    </p>
+    <p>You will be redirected to the homepage in:</p>
+    <div class="countdown" id="countdown">10</div>
+  </div>
+
+  <script>
+    // Countdown + Redirect
+    let timeLeft = 10;
+    const countdownEl = document.getElementById('countdown');
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      countdownEl.textContent = timeLeft;
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        // Redirect to homepage
+        window.location.href = "index.html";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
